@@ -12,8 +12,8 @@ group = "com.gln"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
-tasks.withType<Test> {
-	useJUnitPlatform()
+tasks.getByName<Jar>("jar") {
+	enabled = true
 }
 
 repositories {
@@ -41,5 +41,15 @@ tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "11"
+	}
+}
+
+tasks {
+	withType<Jar> {
+		manifest {
+			attributes["Main-Class"] = "com.gln.kotlindemo.KotlinDemoApplication"
+		}
+		// here zip stuff found in runtimeClasspath:
+		from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
 	}
 }
