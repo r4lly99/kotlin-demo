@@ -35,18 +35,4 @@ git clone https://github.com/r4lly99/kotlin-demo.git
 java -jar build/libs/kotlin-demo-0.0.1-SNAPSHOT.jar         
 
 ``` 
- 
 
-## Authors
-
-Contributors names and contact info
-
-ex. Rully  
-ex. [@r4lly99](https://twitter.com/r4ll99)
-
-## Version History
-
-* 0.2
-    * Complete README.md
-* 0.1
-    * Initial Release
